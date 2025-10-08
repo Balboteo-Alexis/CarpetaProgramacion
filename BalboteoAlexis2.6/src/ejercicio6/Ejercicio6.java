@@ -1,0 +1,60 @@
+/*
+ * Descripción: Pedimos varios datos y usamos ifelse anidados 
+ * Autor: Alexis Balboteo
+ * Fecha: 08/10/2025
+ */
+
+package ejercicio6;
+import java.util.Scanner;
+public class Ejercicio6 {
+
+	public static void main(String[] args) 
+	{
+
+		Scanner teclado = new Scanner(System.in);
+		
+		String name, surname, ciclo, notaTexto;
+		int nota;
+		
+		
+		System.out.print("Nombre: ");
+		name = teclado.nextLine();
+		System.out.print("Apellidos: ");
+		surname = teclado.nextLine();
+		System.out.print("Ciclo formativo: ");
+		ciclo = teclado.nextLine();
+		System.out.print("Nota academica: ");
+		nota = teclado.nextInt();
+		
+		
+		if(nota>=0 &&nota<=10) {
+			
+			if(nota <5) 
+				notaTexto = "Insuficiente";
+			else if(nota<6) 
+				notaTexto= "Suficiente";
+			else if (nota<7)
+				notaTexto = "Bien";
+			else if (nota<9)
+				notaTexto = "Notable";
+			else if (nota<10)
+				notaTexto = "Sobresaliente";
+			else
+				notaTexto = "Matricula de Honor";
+		}
+		else 
+		{
+			notaTexto = "La nota académica indicada es incorrecta";
+		}
+		
+		System.out.println("\n\nNombre: "+name);
+		System.out.println("Apellidos: "+surname);
+		System.out.println("Ciclo formativo: "+ciclo);
+		System.out.println("Nota academica: "+nota + " ("+notaTexto+")");
+		
+		
+		
+		teclado.close();
+	}
+
+}

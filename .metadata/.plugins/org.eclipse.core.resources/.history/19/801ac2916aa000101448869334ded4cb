@@ -1,0 +1,51 @@
+
+
+
+package ejemploifelseanidados;
+
+import java.util.Scanner;
+
+public class EjemploIFelseANIDADOS
+{
+
+	public static void main(String[] args) 
+	{
+		Scanner teclado = new Scanner(System.in);
+		
+		System.out.print("Qué nota has sacado? ");
+		
+		double nota;
+		String notaTexto;
+		nota=teclado.nextDouble();
+		
+		if (nota <5) 
+		{
+			notaTexto = "Insuficiente";
+		}
+		else 
+		{
+			if(nota<7)
+			{
+				notaTexto = "Bien";
+			}
+			else
+			{
+				if(nota<9)
+				{
+					notaTexto ="Notable";
+				}
+				else 
+				{
+					notaTexto = "Sobresaliente";
+				}
+				
+			}
+		}
+		
+		
+		System.out.print(notaTexto);
+		
+		
+	}
+
+}

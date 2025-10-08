@@ -1,0 +1,49 @@
+/*
+ * Descripcioón:
+ * Autor:Alexis Balboteo
+ * Fecha:07/10/2025
+ */
+
+package ejercicio2;
+import java.util.Scanner;
+public class Ejercicio2 
+{
+	
+	public static void main(String[] args)
+	{
+		
+		Scanner teclado = new Scanner(System.in);
+	
+		String nombre;
+		int edad;
+		double nota;
+	
+		System.out.print("Su nombre: ");
+		nombre = teclado.nextLine();
+		System.out.print("Su edad: ");
+		edad = teclado.nextInt();
+		System.out.print("Su nota: ");
+		nota = teclado.nextDouble();
+	
+	
+		teclado.close();
+		if(nota>7)
+		{
+			if(edad>=18)
+			{
+				System.out.print(nombre + ", usted ha sido admitido en el curso, cumple las condiciones requeridas.");
+			}	
+		}
+		else
+		{
+			System.out.print(nombre + ", usted no ha sido admitido en el curso ya que no cumple las condiciones requeridas.");
+		}
+	
+	}
+	
+	
+	
+	
+	
+	
+}

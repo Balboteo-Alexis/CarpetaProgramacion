@@ -1,0 +1,46 @@
+/*
+ * Descripción: 
+ * Autor: Alexis Balboteo
+ * Fecha: 08/10/2025
+ */
+
+
+package ejercicio4;
+import java.util.Scanner;
+public class Ejercicio4 {
+
+	public static void main(String[] args)
+	{
+		Scanner teclado = new Scanner(System.in);
+		
+		String name, surname;
+		double importe1, importe2, importe3, importe4;
+		
+		System.out.print("Nombre: ");
+		name = teclado.nextLine();
+		System.out.print("Apellidos: ");
+		surname = teclado.nextLine();
+		System.out.print("Importe gastado 1: ");
+		importe1 = teclado.nextDouble();
+		System.out.print("Importe gastado 2: ");
+		importe2 = teclado.nextDouble();
+		System.out.print("Importe gastado 3: ");
+		importe3 = teclado.nextDouble();
+		System.out.print("Importe gastado 4: ");
+		importe4 = teclado.nextDouble();
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		teclado.close();
+	}
+
+}
