@@ -1,5 +1,5 @@
 /*
- * Descripcion: 
+ * Descripcion: Usamos ifelse anidados
  * Autor: Alexis 
  * Fecha: 9/10/2025
  */
