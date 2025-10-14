@@ -1,0 +1,57 @@
+/*
+ * Descripcion:Nuestro primer programa con Swich
+ * Autor: Alexis 
+ * Fecha: 14/10/2025
+ */
+
+package ejercicio3;
+
+import java.util.Scanner;
+
+public class Ejercicio3 
+{
+	public static void main(String[] args) 
+	{
+		
+		
+		Scanner teclado = new Scanner(System.in);
+		
+		int nota;
+		
+		
+		System.out.print("Qué nota has sacado? ");
+		nota = teclado.nextInt();
+		
+		
+		switch (nota) {
+	    case 0,1,2,3,4:{
+	    	System.out.println ("Insuficiente");
+	        break;
+	    }
+	    case 5:{
+	        System.out.println ("Suficiente");
+	        break;
+	    }
+	    case 6:{
+	    	System.out.println ("Bien");
+	    	break;
+	    }
+	    case 7,8:{
+	    	System.out.println ("Notable");
+	    	break;
+	    }
+	    case 9,10:{
+	    	System.out.println ("Sobresaliente");
+	    	break;
+	    }
+	    default:{
+	        System.out.println ("Nota introducida incorrecta.");
+	    }
+
+		
+		teclado.close();
+		
+		}
+	
+	}
+}
