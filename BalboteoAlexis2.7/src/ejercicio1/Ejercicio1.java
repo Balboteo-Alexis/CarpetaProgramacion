@@ -4,9 +4,11 @@
  * Fecha: 9/10/2025
  */
 
-
 package ejercicio1;
+
 import java.util.Scanner;
+
+import sun.nio.cs.ext.MSISO2022JP;
 
 public class Ejercicio1 {
 
@@ -50,8 +52,8 @@ public class Ejercicio1 {
 				System.out.print("\n Lo sentimos pero no cumple nuestro perfil");
 			}
 			
-		}
-		
+			
+			
 		teclado.close();
 	}
 
