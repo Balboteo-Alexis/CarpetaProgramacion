@@ -4,13 +4,11 @@
  * Fecha: 9/10/2025
  */
 
-package ejercicio1;
+package ejercicio2;
 
 import java.util.Scanner;
 
-import sun.nio.cs.ext.MSISO2022JP;
-
-public class Ejercicio1 {
+public class Ejercicio2 {
 
 	public static void main(String[] args) 
 	{
@@ -43,18 +41,32 @@ public class Ejercicio1 {
 			System.out.print("Cuantos proyectos has realizado: ");
 			proyects = teclado.nextInt();
 			
-			if(experience > 2 && proyects >3)
+			if(experience > 2 &&  proyects >3)
 			{
-				System.out.print("\nEnhorabuena. Ha sido contratado.");
+				
+				System.out.println("\nEnhorabuena. Ha sido contratado.");
+				
+				if(experience > 5 || proyects > 5)
+				{
+					
+					System.out.println("\nSe le asignará como salario anual: 30.000 euros.");
+				}
+				else
+				{
+					System.out.println("\nSe le asignará como salario anual: 25.000 euros.");
+				}
 			}
 			else
 			{
 				System.out.print("\nLo sentimos pero no cumple nuestro perfil");
 			}
 			
-			
-			
+		}
+		
+		
+		
 		teclado.close();
+		
 	}
 
 }
