@@ -8,7 +8,6 @@ package ejercicio1;
 
 import java.util.Scanner;
 
-import sun.nio.cs.ext.MSISO2022JP;
 
 public class Ejercicio1 {
 
@@ -31,7 +30,7 @@ public class Ejercicio1 {
 		System.out.print("Cual es el salario deseado: ");
 		salary = teclado.nextInt();
 		
-		if(salary > 30000 || age>45)
+		if(salary > 30000 && age>45)
 		{
 			System.out.print("\nLo sentimos pero no cumple nuestro perfil");
 		}
@@ -53,8 +52,8 @@ public class Ejercicio1 {
 			}
 			
 			
-			
+		}	
 		teclado.close();
-	}
+		}
 
-}
+	}
