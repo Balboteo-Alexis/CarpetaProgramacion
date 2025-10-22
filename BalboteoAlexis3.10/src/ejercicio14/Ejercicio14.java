@@ -13,9 +13,8 @@ public class Ejercicio14 {
 		
 		final int TAMANO ;
 		TAMANO = 55;
-		int numero, vueltas;
+		int numero;
 		numero = 1;
-		vueltas = 1;
 		
 		Scanner teclado = new Scanner(System.in);
 		
@@ -23,7 +22,7 @@ public class Ejercicio14 {
 		
 		for (int i = 0  ; i<10 ; i++) {
 			
-			vueltas=0;
+			int vueltas=0;
 			
 			while(vueltas < numero) {
 				
@@ -36,7 +35,9 @@ public class Ejercicio14 {
 					
 		}
 		
+		teclado.close();
 	}
+	
 		
 	
 

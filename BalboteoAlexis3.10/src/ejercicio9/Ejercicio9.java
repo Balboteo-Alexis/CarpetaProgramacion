@@ -6,7 +6,6 @@
 
 package ejercicio9;
 
-import java.util.Iterator;
 import java.util.Scanner;
 
 public class Ejercicio9 {
@@ -23,7 +22,7 @@ public class Ejercicio9 {
 
 			numeros[i] = (int) (1 + Math.random() * 10);
 
-		System.out.print(numeros[i] + " ");
+			System.out.print(numeros[i] + " ");
 
 		}
 
@@ -32,17 +31,15 @@ public class Ejercicio9 {
 		numero = teclado.nextInt();
 
 		System.out.print("El valor indicado (" + numero + ") está en la posición: ");
-		
-		for (int i = 0; i < 100; i++) {
 
-			
+		for (int i = 0; i < 100; i++) {
 
 			if (numero == numeros[i]) {
 
 				System.out.print(i + " ");
-				
-			}
 
+			}
+			teclado.close();
 		}
 	}
 
