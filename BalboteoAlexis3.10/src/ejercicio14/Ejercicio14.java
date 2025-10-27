@@ -24,7 +24,7 @@ public class Ejercicio14 {
 			
 			int vueltas=0;
 			
-			while(vueltas < numero) {
+			while(vueltas< numero) {
 				
 				numeros[i] = numero;
 				System.out.print(numeros[i] + " ");
