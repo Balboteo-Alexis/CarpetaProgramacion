@@ -6,4 +6,5 @@
     <fullyQualifiedTypeName name="sun.nio.cs.ext.MSISO2022JP"/>
     <fullyQualifiedTypeName name="sun.jvm.hotspot.gc.parallel.PSYoungGen"/>
     <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="java.nio.channels.Pipe.SourceChannel"/>
 </qualifiedTypeNameHistroy>
