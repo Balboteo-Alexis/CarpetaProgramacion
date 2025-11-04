@@ -11,8 +11,29 @@ public class ArraysMultidimensionales {
 	public static void main(String[] args) {
 
 		int[][] temperatura = new int[12][30];
-		int tempAlta, diaCaluroso, diaFrio, tempBaja,tempMenor, diaInferior;
+		String[] Meses = new String[12];
+		int tempAlta, diaCaluroso, diaFrio, tempBaja,tempMenor, diaInferior, mesHot, tempMes;
 
+		mesHot = 0;
+		int cont =0;
+		
+		Meses[0] = "Enero";
+		Meses[1] = "Febrero";
+		Meses[2] = "Marzo";
+		Meses[3] = "Abril";
+		Meses[4] = "Mayo";
+		Meses[5] = "Junio";
+		Meses[6] = "Julio";
+		Meses[7] = "Agosto";
+		Meses[8] = "Septiembre";
+		Meses[9] = "Octubre";
+		Meses[10] = "Noviembre";
+		Meses[11]= "Diciembre";
+
+		
+		tempMes = 0;
+		
+		
 		for (int mes = 0; mes < 12; mes++) {
 
 			System.out.print("Mes " + (mes + 1) + ": ");
@@ -61,14 +82,38 @@ public class ArraysMultidimensionales {
 
 				}
 				diaInferior = dias3;
+				
+			
+			
+				
 			}
 			System.out.println();
 			System.out.println("\nEl dia caluroso de este mes es el dia: " + (diaCaluroso + 1) + ", la temperatura fué de: " + tempAlta);
 			System.out.println("El dia frio de este mes es el dia: " + (diaFrio + 1) + ", la temperatura fué de: " + tempBaja);
 			System.out.println("La amplitud termica es de: " + (tempAlta - tempBaja)  );
 			System.out.println("El primer dia con temperatura inferior a 10 es el: dia " + diaInferior +" con una temperatura de: "+ tempMenor + "\n\n");
+			
+			
+			
+			
+			if( tempAlta > tempMes) {
+				tempMes = tempAlta;
+				mesHot = mes;
+			}
+			
+			cont++;
 
 		}
+		
+		
 
+		System.out.printf("El dia mas caluroso fue el dia %d de %s con %d grados \n\n", 4, Meses[mesHot],tempMes );    // formato que usaremos a partir de ahora
+		
+
+		final double PI = Math.PI;
+
+		System.out.println(PI);
+		System.out.printf("El valor de pi es %.4f", PI);
+		
 	}
 }
