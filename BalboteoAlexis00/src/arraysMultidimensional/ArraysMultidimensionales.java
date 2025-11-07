@@ -116,4 +116,32 @@ public class ArraysMultidimensionales {
 		System.out.printf("El valor de pi es %.4f", PI);
 		
 	}
+	
+	
+	
+	
+	public static int[][]
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

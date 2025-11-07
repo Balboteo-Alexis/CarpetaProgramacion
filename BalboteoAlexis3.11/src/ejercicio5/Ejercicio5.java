@@ -54,9 +54,12 @@ public class Ejercicio5 {
 		sueldoMediaHombre = sueldoHombre/ contHombre;
 		
 		
+		
 		System.out.println("Para las mujeres el sueldo medio es de: "+ sueldoMediaMujer);
 		System.out.println("Para los hombres el sueldo medio es de: "+ sueldoMediaHombre);
 		
 	}
+	
+	
 
 }
