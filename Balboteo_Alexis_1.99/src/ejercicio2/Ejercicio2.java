@@ -78,8 +78,6 @@ public class Ejercicio2 {
 				
 				
 				
-				
-				
 				break;
 			}
 			case 3:{
