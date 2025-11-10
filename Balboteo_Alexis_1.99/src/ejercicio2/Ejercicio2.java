@@ -75,9 +75,7 @@ public class Ejercicio2 {
 				 
 				System.out.println("El precio final (sin iva) con descuento para el tipo de matricula "+ matricula+ " es de: " );
 				
-				
-				
-				
+	
 				break;
 			}
 			case 3:{
