@@ -1,5 +1,6 @@
 package add2;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Add2 {
@@ -27,11 +28,11 @@ public class Add2 {
 		System.out.println("MENU:\n");
 
 //		Menu basico
-		mostarMenu();
 		
 		
-		System.out.print("\nDigame que quiere hacer: ");
-		opmenu = teclado.nextInt();
+		
+
+		opmenu = mostarMenu( teclado);
 
 		while (opmenu > 12 || opmenu < 0) {
 			System.out.println("Error de selección");
@@ -128,6 +129,14 @@ public class Add2 {
 			}
 			case 9: {
 				
+				int fila;
+				
+				System.out.println("Digame que fila quieres ordenar");
+				fila = teclado.nextInt();
+				
+				ordenarFilaMayor(tabla, fila);
+				
+				
 				break;
 			}
 			case 10: {
@@ -145,7 +154,7 @@ public class Add2 {
 			}
 			case 12: {
 				System.out.println();
-				mostarMenu();
+				mostarMenu(teclado);
 				
 				break;
 			}
@@ -154,6 +163,7 @@ public class Add2 {
 			}
 
 			}
+			mostarMenu(teclado);
 			
 			System.out.print("\nDigame que quiere hacer: ");
 			opmenu = teclado.nextInt();
@@ -190,7 +200,9 @@ public class Add2 {
 	}
 
 //	Mostar menu basico.
-	public static void mostarMenu() {
+	public static int mostarMenu( Scanner teclado  ) {
+		
+		int eleccion;
 		
 		System.out.println("0 - Salir");
 		System.out.println("1 - Rellenar tabla con valores random");
@@ -205,6 +217,12 @@ public class Add2 {
 		System.out.println("10 - Mostrar tabla");
 		System.out.println("11 - Borrar tabla (Toda la tabla a 0)");
 		System.out.println("12 - Mostar menu.");
+		
+		
+		System.out.println("\nQué eliges: ");
+		eleccion = teclado.nextInt();
+		
+		return eleccion;
 		
 	}
 	
@@ -326,6 +344,14 @@ public class Add2 {
 	
 //	Ordenar una fila de menor a mayor
 	
+	public static void rodenarFila(int[][] tabla, int fila) {
+		
+		Arrays.sort(tabla[fila]);
+		
+		
+	}
+	
+	
 	
 //	Borrar tablam, todos los valores a 0.
 	
@@ -337,6 +363,37 @@ public class Add2 {
 
 				tabla[i][j] = 0;
 			}
+		}
+		
+		
+	}
+	
+//	Ordenar una fila de mayor a menor.
+	
+	
+	public static void ordenarFilaMayor(int[][] tabla, int fila) {
+		
+		for( int i = 0 ; i < tabla[fila].length ; i++   ) {
+			
+			int mayor;
+			mayor = tabla[fila][i];
+			
+			for(int j = 0 ; j < tabla[fila].length; j++) {
+					
+				int guardado;
+				
+				if(mayor<tabla[fila][j]) {
+					
+					guardado = mayor;
+					tabla[fila][i] = guardado;
+					
+					mayor = tabla[fila][j];
+					
+					
+				}
+			}
+			
+			tabla[fila][i] = mayor;
 		}
 		
 		
