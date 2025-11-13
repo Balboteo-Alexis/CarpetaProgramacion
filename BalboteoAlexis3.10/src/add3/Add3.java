@@ -13,6 +13,8 @@ public class Add3 {
 		rellenarTablaRandom(array2Dimendiones);
 		mostrarTabla(array2Dimendiones);
 
+		
+		
 	}
 	
 //	Crea un array de 2 dimensiones

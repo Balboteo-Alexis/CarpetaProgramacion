@@ -36,7 +36,7 @@ public class Ejercicio14 {
 					k++;
 				}
 				
-				if(i!=0) {
+				
 					int cantidad = 	(2*i +1);
 					
 					for(int p = 1; p<cantidad; p++) {
@@ -44,7 +44,7 @@ public class Ejercicio14 {
 						System.out.print(a);
 					}
 					
-				}
+				
 
 				
 				
