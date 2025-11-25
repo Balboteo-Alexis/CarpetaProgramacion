@@ -20,8 +20,20 @@ public class PrimerEJ {
 		r2.y = 5;
 		System.out.println(r2);
 		
+		System.out.println(r1.getX());
+
 		
-
 	}
-
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
