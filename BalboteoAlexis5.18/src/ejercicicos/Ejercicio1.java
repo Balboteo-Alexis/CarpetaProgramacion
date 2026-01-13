@@ -37,6 +37,7 @@ public class Ejercicio1 {
 		} catch (IllegalArgumentException ex31) {
 
 			System.out.println(ex31.getMessage());
+			roja =  new Bombilla();
 		}
 
 		// 3.2
