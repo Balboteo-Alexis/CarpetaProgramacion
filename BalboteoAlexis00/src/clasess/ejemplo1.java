@@ -41,6 +41,37 @@ public class ejemplo1 {
 	
 	
 	 
+	  public NuevoAlumno (double x1, double y1, double x2, double y2, String nombre, String color) throws IllegalArgumentException {
+		  // Comprobación de que los valores de entrada son válidos
+
+		  if (x1>=x2 || y1>y2)  // Comprobación de que la ubicación no es inconsistente (x1,y1) debe estar a la izquierda y por debajo de (x2,y2)
+		      throw new IllegalArgumentException (
+			    String.format ("El vértice (x1,y1)=(%.2f,%.2f) debe estar a la izquierda y por debajo del (x2,y2)=(%.2f,%.2f)", 
+			    x1, y1, x2, y2)
+		      );
+		  if ( nombre == null || nombre.isEmpty() )  // Comprobación de que el nombre no es null ni vacío
+		      throw new IllegalArgumentException ("nombre null o vacío");
+		  if ( color== null || color.isEmpty() )  // Comprobación de que el color no es null ni vacío
+		      throw new IllegalArgumentException ("color null o vacío");
+
+		  // Una vez que se ha garantizado que todos los valores de entrada son apropiados, puede continuar el proceso de instanciación
+		  // del objeto
+		    
+		  // Asignación de valores iniciales a los atributos de estado
+		  this.x1= x1;
+		  this.y1= y1;
+		  this.x2= x2;
+		  this.y2= y2;
+		  this.nombre= nombre;
+		  this.color= color;  
+		  
+		  // Actualización de atributos de clase por el hecho de crearse un nuevo rectángulo
+		  Rectangulo.cantidadRectangulos++;  // Incrementamos la cantidad de rectángulos creados  
+		}
+	  
+	  
+	  
+	  
 	
 	
 
