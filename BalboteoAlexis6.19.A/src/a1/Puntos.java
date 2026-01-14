@@ -9,7 +9,10 @@ public class Puntos {
 	
 	
 	
-	
+	public Puntos(int x, int y) {
+		this.x = x;
+		this.y = y;
+	}
 	
 
 	
