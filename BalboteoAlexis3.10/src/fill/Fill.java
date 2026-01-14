@@ -30,29 +30,13 @@ public class Fill {
 	int [] tabla = new int[cont];
 	
 	
-		for() {
-			
-			tsbla[i] = num;
-			
-			
-			
-		cont++;	
-		}
-	
-	
-	
-	
-	
-	
-	
-	
-	
+		
 	
 	
 	
 	
 
-	}
+	
 	
 	//Muestra la tabla por pantalla
 		public static void mostrarTabla(int[][] tablaCualquiera) {

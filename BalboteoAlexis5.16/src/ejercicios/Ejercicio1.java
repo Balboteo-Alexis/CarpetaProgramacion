@@ -89,7 +89,7 @@ public class Ejercicio1 {
 		System.out.println("\n-------------------------------\n");
 		System.out.println(cuentaPrivada.toString());
 		System.out.println(cuentaConjunta.toString());
-		System.out.println(cuentaF.toString());
+//		System.out.println(cuentaF.toString());
 		
 		
 	}
