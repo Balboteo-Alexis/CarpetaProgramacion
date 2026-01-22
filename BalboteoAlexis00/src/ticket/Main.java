@@ -1,6 +1,8 @@
 package ticket;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+
+
 
 public class Main {
 
@@ -13,12 +15,18 @@ public class Main {
 		Ticket uno1 = new Ticket();
 		Ticket uno3= new Ticket();
 		Ticket uno4 = new Ticket();
-		Ticket uno5 = new Ticket(LocalDateTime.of(2026, 1, 25, 23, 30));
+		Ticket uno5 = new Ticket(LocalDate.of(2026, 1, 22));
+		
+		uno5.usar();
+		
+		System.out.println(uno5.isUsado());
 		System.out.println(uno5.getIdentificador());
 		
 		
 		
 		System.out.println(uno5.isFinSemana());
+		
+		System.out.println(uno5.toString());
 		
 		
 		

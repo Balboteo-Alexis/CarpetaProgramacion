@@ -1,7 +1,9 @@
 package ticket;
 
 import java.time.DayOfWeek;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 public class Ticket {
 
@@ -10,18 +12,19 @@ public class Ticket {
 
 
 	// Atributos de clase variables
-	private static short año;
+	private static short anno;
 	private static int secuencia;
 
 	// Atributos de objeto inmutables
 	private final String identificador;
-	private final LocalDateTime fecha;
+	private final LocalDate fecha;
 
 	// Atributos de objeto variables
-	private LocalDateTime uso;
+	private LocalTime uso;
+	
 
 	// constructor un parametro
-	public Ticket(LocalDateTime fecha) {
+	public Ticket(LocalDate fecha) {
 
 		if (secuencia == MAX_NUM_IDENTIFICADOR) {
 			throw new IllegalStateException("Maximo numero de tickets creados este año");
@@ -32,12 +35,12 @@ public class Ticket {
 		this.fecha = fecha;
 		short añoActual = (short) LocalDateTime.now().getYear();
 		
-		if (año != añoActual) {
-			año = añoActual;
+		if (anno != añoActual) {
+			anno = añoActual;
 			secuencia = 1;
 		}
 
-		this.identificador = String.format("%04d-%08d", (int) año, secuencia++);
+		this.identificador = String.format("%04d-%08d", (int) anno, secuencia++);
 		
 		
 
@@ -45,7 +48,7 @@ public class Ticket {
 
 	// constructor sin parametros
 	public Ticket() {
-		this(LocalDateTime.now());
+		this(LocalDate.now());
 	}
 
 	// GETTERS
@@ -67,7 +70,7 @@ public class Ticket {
 	}
 
 	// get fecha
-	public LocalDateTime getFecha() {
+	public LocalDate getFecha() {
 		return this.fecha;
 	}
 
@@ -91,13 +94,29 @@ public class Ticket {
 			
 		}
 		
-		if(LocalDateTime.now().getYear()  == this.fecha.getYear() 
-				&& LocalDateTime.now().getDayOfYear()  == this.fecha.getDayOfYear()) {
+		if(LocalDate.now().getYear()  != this.fecha.getYear() 
+				|| LocalDateTime.now().getDayOfYear()  != this.fecha.getDayOfYear()) {
 			
-			this.uso = LocalDateTime.now();    // asi guardamos la hora
+			throw new IllegalStateException("Fecha erronea");
 			
 		}
+		this.uso = LocalTime.now();
 		
 	}
+
+	@Override
+	public String toString() {
+
+		return String.format ("{ID: %s, Fecha:%02d/%02d/%02d, Usado: %s}",
+				this.identificador,
+				this.fecha.getYear(), this.fecha.getMonthValue(), this.fecha.getDayOfMonth(),
+				isUsado() == false ? "no" : String.format ("%02d:%02d", uso.getHour(), uso.getMinute()));
+			    
+		
+	}
+	
+	
+	
+	
 
 }
