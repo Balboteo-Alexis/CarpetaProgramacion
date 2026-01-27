@@ -16,7 +16,7 @@ public class Main {
 		bolsa.precio=10;
 		
 		System.out.printf("%s, Precio: %d IVA: %d %% - PVP: %.2f", bolsa.nombre,bolsa.precio,bolsa.iva, (double)(bolsa.precio * bolsa.iva/100.0)+bolsa.precio);
-		hola
+
 		
 	}
 
