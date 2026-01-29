@@ -4,8 +4,14 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.Iterator;
 
 public class Ticket {
+	
+	
+	public enum Meses{ENERO,FEBRERO,MARZO,ABRIL,MAYO,JUNIO,JULIO,AGOSTO,SEPTIEMBRE,OCTUBRE,NOVIEMBRE,DICIEMBRE}
+	
+	
 
 	// Atributos de clase constantes
 	public static final int MAX_NUM_IDENTIFICADOR = 99999999;
@@ -21,10 +27,16 @@ public class Ticket {
 
 	// Atributos de objeto variables
 	private LocalTime uso;
+	private Meses meses;
 	
 
+	
+	
+
+	
+	
 	// constructor un parametro
-	public Ticket(LocalDate fecha) {
+	public Ticket(LocalDate fecha) throws  IllegalStateException {
 
 		if (secuencia == MAX_NUM_IDENTIFICADOR) {
 			throw new IllegalStateException("Maximo numero de tickets creados este año");
@@ -42,7 +54,7 @@ public class Ticket {
 
 		this.identificador = String.format("%04d-%08d", (int) anno, secuencia++);
 		
-		
+		this.meses = Meses.ENERO;
 
 	}
 
@@ -104,7 +116,6 @@ public class Ticket {
 		
 	}
 
-	@Override
 	public String toString() {
 
 		return String.format ("{ID: %s, Fecha:%02d/%02d/%02d, Usado: %s}",
@@ -114,6 +125,25 @@ public class Ticket {
 			    
 		
 	}
+	
+	
+	
+	public Ticket[] vector(int tamanhoArray) {
+		
+		Ticket[] vector = new Ticket[tamanhoArray];
+		for(int i =  0; i<10; i++) {
+			
+			vector[i] = new Ticket();
+			
+			
+		}
+		
+		
+		
+		return vector;
+	}
+	
+	
 	
 	
 	

@@ -22,11 +22,6 @@ public class Dado {
 	private int[] registroCaras;
 
 	
-	
-	
-	
-	
-	
 	// constructor con un parametro
 	public Dado(int caras) {
 		
