@@ -36,14 +36,15 @@ public class Empleado {
 
 
 		public Empleado(short sueldoBase, short pagoHExtra, short horasExtrasRealizadas, byte hijos, byte tipoIrfp,
-				boolean casado, String nif, String nombre, String apellidos) throws IllegalStateException {
+				boolean casado, String nif, String nombre, String apellidos) throws IllegalArgumentException {
 			
 			
 			if(sueldoBase<SALARIO_DEFAULT) {
-				throw new IllegalStateException("El minimo son 900");
+				throw new IllegalStateException("El minimo son 900 ");
+				
 			}
-			if(pagoHExtra<HORAS_EXTRA_DEFAULT) {
-				throw new IllegalStateException("El minimo son 10");
+			if(pagoHExtra<HORAS_EXTRA_DEFAULT || pagoHExtra> 50) {
+				throw new IllegalStateException("El minimo son 10 y maximo 50");
 			}
 			if(horasExtrasRealizadas>40 || horasExtrasRealizadas<0) {
 				throw new IllegalStateException("El limite son 40 y minimo 0");
@@ -82,11 +83,60 @@ public class Empleado {
 		
 		
 		
+		//Getters
+		
+		public short getSueldoBase() {
+			return this.sueldoBase;
+		}
+
+
+
+
+
+
+
+
+
+		public short getHorasExtrasRealizadas() {
+			return this.horasExtrasRealizadas;
+		}
+
+
+
+
+
+		
+		//Setters
+		
+
+		public void setSueldoBase(short sueldoBase) throws IllegalStateException{
+			
+			if(sueldoBase<SALARIO_DEFAULT) {
+				throw new IllegalStateException("El minimo son 900");
+			}
+			
+			this.sueldoBase = sueldoBase;
+		}
+
+
+		public void setHorasExtrasRealizadas (short horasExtrasRealizadas)throws IllegalStateException {
+			
+			if(horasExtrasRealizadas>40 || horasExtrasRealizadas<0) {
+				throw new IllegalStateException("El limite son 40 y minimo 0");
+			}
+			this.horasExtrasRealizadas = horasExtrasRealizadas;
+		}
+
+		
+		
+		//metodos
+		
+		
 		
 		public boolean  validarNif(String nif) {
 			
 			boolean valido= false;
-			Pattern patron = Pattern.compile("[1-9]{9}[A-Z]{1}");
+			Pattern patron = Pattern.compile("[1-9]{8}[A-Z]{1}");
 			
 			Matcher coinciden = patron.matcher(nif);
 			
@@ -96,11 +146,101 @@ public class Empleado {
 		}
 		
 
-		
-		//metodos
-		
-		
 
+
+
+
+		public double complementoExtras() {
+			double dinero;
+			
+			
+			dinero= (double) this.horasExtrasRealizadas * this.pagoHExtra;
+			
+			return dinero;
+			
+		}
+		
+		public double sueldoBruto() {
+			double bruto;
+			bruto = this.sueldoBase * (1 - (this.tipoIrfp*0.010));
+			
+			bruto = bruto + complementoExtras();
+			
+			return bruto;
+		}
+		
+		public byte retenciones() {
+			byte retencion;
+			retencion = this.tipoIrfp;
+			
+			if (this.casado) {
+				retencion--;
+				retencion--;
+			}
+			if(this.hijos>0) {
+				byte hijos = this.hijos;
+				while(hijos>0) {
+					retencion--;
+					hijos--;
+				}
+			}
+			return retencion;
+			
+			
+		}
+
+
+
+		public String verEmpleado() {
+			String info;
+			info = String.format("%s, %s, con DNI: %s.",
+					    this.nombre,
+					    this.apellidos, 
+					    this.nif );
+			
+			
+			return  info;
+			}
+
+		public String verTodoEmpleado() {
+			String info;
+			info = String.format("%s, %s, con DNI: %s.%nSu sueldo es de: %d, "
+					+ "el complemento por horas extra: %d, el sueldo bruto: %d, la retención de IRPF: %d %%"
+					+ ", el sueldo neto: %d",
+					    this.nombre,
+					    this.apellidos, 
+					    this.nif,
+					    this.sueldoBase,
+					    complementoExtras(),
+					    sueldoBruto(),
+					    retenciones(),
+					    this.sueldoBase);
+			
+			
+			return  info;
+			}
 	
+		
+		public void copia(Empleado trabajador) {
+			
+			this.sueldoBase = trabajador.sueldoBase;
+			this.pagoHExtra = trabajador.pagoHExtra;
+			this.horasExtrasRealizadas = trabajador.horasExtrasRealizadas;
+			this.hijos = trabajador.hijos;
+			this.tipoIrfp = trabajador.tipoIrfp;
+			this.casado = trabajador.casado;
+			this.nif = trabajador.nif;
+			this.nombre = trabajador.nombre;
+			this.apellidos = trabajador.apellidos;
+			
+			
+			
+		}
+
+
+
+
+
+		
 
 }
