@@ -85,6 +85,15 @@ public class Cancion {
 		return clon;
 		
 	}
+
+
+	@Override
+	public String toString() {
+		return "Cancion [titulo=" + titulo + ", autor=" + autor + "]";
+	}
+	
+	
+	
 	
 
 }
