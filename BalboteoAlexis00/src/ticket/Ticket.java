@@ -1,10 +1,20 @@
+/*
+ * Descripción: 
+ * Autor: Alexis Balboteo González
+ * Fecha: 18/02/2026
+ */
+
+
+
+
 package ticket;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.util.Iterator;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Ticket {
 	
@@ -143,6 +153,25 @@ public class Ticket {
 		return vector;
 	}
 	
+	
+	
+	private static boolean validarMatricula(String matricula) {
+
+		boolean valida = false;
+
+		matricula = matricula.toUpperCase();
+		Pattern patron = Pattern.compile("[0-9]{4}[A-Z]{3}");
+		Matcher texto = patron.matcher(matricula);
+
+		if (!texto.matches()) {
+			throw new IllegalStateException("Formato de matricula erroneo");
+		} else {
+			valida = true;
+
+		}
+
+		return valida;
+	}
 	
 	
 	
