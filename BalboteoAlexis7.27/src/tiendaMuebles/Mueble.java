@@ -56,7 +56,7 @@ public abstract class Mueble {
 	// toString
 
 	public String toString() {
-		return "tipo: "+ this.getClass().getSimpleName() + " identificador=" + identificador + ", descripcion=" + descripcion + ", precio=" + precio;
+		return "tipo: "+ this.getClass().getSimpleName() + " identificador=" + this.identificador + ", descripcion=" + this.descripcion + ", precio=" + this.precio;
 	}
 
 }
