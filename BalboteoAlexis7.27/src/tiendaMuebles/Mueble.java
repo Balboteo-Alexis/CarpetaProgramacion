@@ -2,8 +2,8 @@ package tiendaMuebles;
 
 public abstract class Mueble {
 
-	public static final double PRECIO_MAX_MUEBLE = 10000.00;
-	public static final double PRECIO_MIN_MUEBLE = 0.01;
+	public static final double MAX_PRECIO  = 10000.00;
+	public static final double MIN_PRECIO = 0.01;
 
 	private static int contador = 1;
 
@@ -16,8 +16,8 @@ public abstract class Mueble {
 
 	public Mueble(String descripcion, double precio) throws IllegalArgumentException {
 
-		if (precio < PRECIO_MIN_MUEBLE || precio > PRECIO_MAX_MUEBLE) {
-			throw new IllegalArgumentException("El precio no está en el rango permitido: XXX,XX");
+		if (precio < MIN_PRECIO || precio > MAX_PRECIO) {
+			throw new IllegalArgumentException("El precio no está en el rango permitido: "+ MAX_PRECIO);
 		}
 
 		this.identificador = contador;
@@ -30,18 +30,18 @@ public abstract class Mueble {
 	// Getters
 
 	public static double getPrecioMaxMueble() {
-		return PRECIO_MAX_MUEBLE;
+		return MAX_PRECIO;
 	}
 
 	public static double getPrecioMinMueble() {
-		return PRECIO_MIN_MUEBLE;
+		return MIN_PRECIO;
 	}
 
 	public static int getContador() {
 		return contador;
 	}
 
-	public int getIdentificador() {
+	public int getId() {
 		return identificador;
 	}
 

@@ -3,9 +3,9 @@ package tiendaMuebles;
 public interface  Ajustable {
 	
 	
-	public int obetenerPosicion();
-	public void subirPosicion() throws IllegalStateException;
-	public void bajarPosicion() throws IllegalStateException;
+	public byte obtenerPosicion();
+	public byte subirPosicion() throws IllegalStateException;
+	public byte bajarPosicion() throws IllegalStateException;
 	
 	
 	

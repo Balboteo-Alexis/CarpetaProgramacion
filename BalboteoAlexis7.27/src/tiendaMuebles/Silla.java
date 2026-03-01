@@ -10,7 +10,7 @@ public final class Silla extends Asiento implements Ajustable {
 	private byte numPosicion;
 
 	// constructor
-	public Silla(String descripcion, double precio, String tapiceria, String color) {
+	public Silla(double precio, String descripcion, String tapiceria, String color) {
 		super(descripcion, precio, Asiento.MIN_PLAZAS, tapiceria, color);
 
 		this.numPosicion = MIN_POSICION;
@@ -20,38 +20,44 @@ public final class Silla extends Asiento implements Ajustable {
 	// metodos
 
 	@Override
-	public int obetenerPosicion() {
+	public byte obtenerPosicion() {
 
 		return this.numPosicion;
 	}
 
 	@Override
-	public void subirPosicion() throws IllegalStateException {
+	public byte subirPosicion() throws IllegalStateException {
 
-		if(this.numPosicion == MAX_POSICION) {
-			throw new IllegalStateException("Error: no se puede subir a la posición " + MAX_POSICION+1);
+		if (this.numPosicion == MAX_POSICION) {
+			throw new IllegalStateException("Error: no se puede subir a la posición " + (MAX_POSICION + 1));
 		}
-		
-		
+
+		this.numPosicion++;
+
+		byte posi = this.numPosicion;
+		return posi;
+
 	}
 
 	@Override
-	public void bajarPosicion() throws IllegalStateException {
-		if(this.numPosicion == MAX_POSICION) {
-			throw new IllegalStateException("Error: no se puede bajar a la posición " + (this.numPosicion-1) + ", ya que la posición mínima es" + MIN_POSICION);
+	public byte bajarPosicion() throws IllegalStateException {
+		if (this.numPosicion == MIN_POSICION) {
+			throw new IllegalStateException("Error: no se puede bajar a la posición " + (this.numPosicion - 1)
+					+ ", ya que la posición mínima es" + MIN_POSICION);
 		}
+		this.numPosicion--;
+
+		byte posi = this.numPosicion;
+
+		return posi;
 	}
 
-	
-	
 	@Override
 	public String toString() {
 
 		String frase;
 
 		frase = super.toString() + " [numPosicion=" + this.numPosicion + "]";
-
-
 
 		return frase;
 

@@ -4,16 +4,16 @@ public abstract class Asiento extends Mueble {
 
 	// Atributos
 
-	public static final byte MIN_PLAZAS = 1;
-	public static final byte MAX_PLAZAS = 9;
+	public static final int MIN_PLAZAS = 1;
+	public static final int MAX_PLAZAS = 9;
 
-	private final byte numPlazas;
+	private final int numPlazas;
 	private final String tapiceria;
 
 	private String color;
 
 	// constructor
-	public Asiento(String descripcion, double precio, byte numPlazas, String tapiceria, String color)
+	public Asiento(String descripcion, double precio, int numPlazas, String tapiceria, String color)
 			throws IllegalArgumentException {
 		super(descripcion, precio);
 
@@ -37,7 +37,7 @@ public abstract class Asiento extends Mueble {
 		this.color = color;
 	}
 
-	public byte getNumPlazas() {
+	public int getNumPlazas() {
 		return this.numPlazas;
 	}
 

@@ -15,11 +15,11 @@ public abstract class Almacenaje extends Mueble implements Personalizable {
 	protected double altura;
 
 	protected Modulo[] array;
-	protected int numModulosAñadidos = MIN_MODULOS;
+	protected int numModulosAnyadidos = MIN_MODULOS;
 
 	// Constructor
 
-	public Almacenaje(String descripcion, double precio, int numMaxModulos, double anchura, double altura)
+	public Almacenaje(double precio,String descripcion,   double anchura, double altura, int numMaxModulos)
 			throws IllegalArgumentException {
 		super(descripcion, precio);
 
@@ -40,7 +40,7 @@ public abstract class Almacenaje extends Mueble implements Personalizable {
 
 	// metodos
 
-	public int getNumMaxModulos() {
+	public int getNumModulos() {
 		return this.numMaxModulos;
 	}
 
@@ -52,8 +52,8 @@ public abstract class Almacenaje extends Mueble implements Personalizable {
 		return this.altura;
 	}
 
-	public int getNumModulosAñadidos() {
-		return this.numModulosAñadidos;
+	public int getModulosAnyadidos() {
+		return this.numModulosAnyadidos;
 	}
 
 	public String obtenerModulos() {
@@ -62,16 +62,16 @@ public abstract class Almacenaje extends Mueble implements Personalizable {
 
 	};
 
-	public void añadirModulo(Modulo modulo) throws IllegalStateException, NullPointerException {
+	public void anyadirModulo(Modulo modulo) throws IllegalStateException, NullPointerException {
 		if (modulo == null) {
 			throw new NullPointerException("\"Error: el módulo a añadir no puede ser nulo");
 		}
-		if (numModulosAñadidos == numMaxModulos) {
+		if (this.numModulosAnyadidos == this.numMaxModulos) {
 			throw new IllegalStateException("Error: no se puede añadir el módulo " + modulo
-					+ ". El número de módulos no puede superar el máximo permitido: " + MAX_MODULOS);
+					+ ". El número de módulos no puede superar el máximo permitido: " + this.numMaxModulos);
 		}
 
-		array[numModulosAñadidos++] = modulo; // se suele ver asi o mejor por separado? el ++ despues porque el array
+		array[this.numModulosAnyadidos++] = modulo; // se suele ver asi o mejor por separado? el ++ despues porque el array
 												// empieza desde 0,
 												// si lo ponemos antes dejariamos huecos vacios porque empieza en 1, o
 												// deberia cambiar eso
@@ -80,16 +80,16 @@ public abstract class Almacenaje extends Mueble implements Personalizable {
 
 	public Modulo extraerModulo() throws IllegalStateException {
 
-		if (numModulosAñadidos == 1) {
+		if (this.numModulosAnyadidos == 1) {
 			throw new IllegalStateException(
 					" Error: no se puede quitar el módulo. El número de módulos no puede ser inferior a "
 							+ MIN_MODULOS);
 		}
 
-		Modulo extraido = array[numModulosAñadidos];
+		Modulo extraido = array[(this.numModulosAnyadidos-1)];
 
-		array[numModulosAñadidos--] = null; // igual que arriba no?
-
+//		array[this.numModulosAnyadidos] = null; // 	por que no puedo ponerlo a null?, entiendo que no importa porque luego pisariamos la posicio, pero por que no puedo ponerlo a null?
+		numModulosAnyadidos--;
 		return extraido;
 
 	};

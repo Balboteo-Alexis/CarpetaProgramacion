@@ -9,9 +9,9 @@ public final class Estanteria extends Almacenaje {
 	private String tipo;
 
 	// constructor
-	public Estanteria(String descripcion, double precio, int numMaxModulos, double anchura, double altura, String tipo)
+	public Estanteria( double precio, String descripcion,  double anchura, double altura,int numMaxModulos, String tipo)
 			throws IllegalArgumentException {
-		super(descripcion, precio, numMaxModulos, anchura, altura);
+		super( precio,descripcion, anchura, altura, numMaxModulos);
 
 		this.tipo = tipo;
 
@@ -27,15 +27,16 @@ public final class Estanteria extends Almacenaje {
 	
 	
 	@Override
-	public void añadirModulo(Modulo modulo) throws IllegalStateException, NullPointerException, IllegalArgumentException {
-		super.añadirModulo(modulo);
+	public void anyadirModulo(Modulo modulo) throws IllegalStateException, NullPointerException, IllegalArgumentException {
+		super.anyadirModulo(modulo);
 		
-//		if(modulo == null) {
-//			throw new NullPointerException("\"Error: el módulo a añadir no puede ser nulo");       	me lo puedo ahorrar por que esta en el metodo de la case padre?
-//		}
+		if(modulo == null) {
+			throw new NullPointerException("Error: el módulo a añadir no puede ser nulo");       	
+		}
 		if(modulo != Modulo.BALDA) {
 			throw new IllegalArgumentException("Solo se pueden añadir baldas");
 		}
+		
 		
 		
 	}

@@ -11,7 +11,7 @@ public final class Sillon extends Asiento implements Ajustable {
 
 	
 	// Constructor
-	public Sillon(String descripcion, double precio, byte numPlazas, String tapiceria, String color)
+	public Sillon( double precio,String descripcion,  String tapiceria, String color)
 			throws IllegalArgumentException {
 		super(descripcion, precio, Asiento.MIN_PLAZAS, tapiceria, color);
 
@@ -26,25 +26,36 @@ public final class Sillon extends Asiento implements Ajustable {
 	
 
 	@Override
-	public int obetenerPosicion() {
+	public byte obtenerPosicion() {
 
 		return this.numPosicion;
 	}
 
 	@Override
-	public void subirPosicion() throws IllegalStateException {
+	public byte subirPosicion() throws IllegalStateException {
 
 		if (this.numPosicion == POS_SUBIDO) {
 			throw new IllegalStateException("Error: no se pueden subir los pies del sillón. Ya están subidos");
 		}
+		
+		this.numPosicion++;
+
+		byte posi = this.numPosicion;
+		return posi;
 
 	}
 
 	@Override
-	public void bajarPosicion() throws IllegalStateException {
+	public byte bajarPosicion() throws IllegalStateException {
 		if (this.numPosicion == POS_BAJADO) {
 			throw new IllegalStateException("Error: no se pueden bajar los pies del sillón. Ya están bajados");
 		}
+		
+		this.numPosicion--;
+
+		byte posi = this.numPosicion;
+		return posi;
+		
 	}
 
 	@Override

@@ -6,7 +6,7 @@ public final class Sofa extends Asiento {
 
 	// Constructor
 
-	public Sofa(String descripcion, double precio, byte numPlazas, String tapiceria, String color, String composicion)
+	public Sofa(double precio,String descripcion,  int numPlazas, String tapiceria, String color, String composicion)
 			throws IllegalArgumentException {
 		super(descripcion, precio, numPlazas, tapiceria, color);
 
