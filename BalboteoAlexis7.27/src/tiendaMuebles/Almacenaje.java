@@ -34,7 +34,7 @@ public abstract class Almacenaje extends Mueble implements Personalizable {
 
 		array = new Modulo[numMaxModulos];
 
-		array[0] = Modulo.BALDA; // preguntar si el enunciado quiere esto en concreto;
+		array[0] = Modulo.BALDA; 
 
 	}
 
