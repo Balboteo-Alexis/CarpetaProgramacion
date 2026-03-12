@@ -88,7 +88,7 @@ public abstract class Almacenaje extends Mueble implements Personalizable {
 
 		Modulo extraido = array[(this.numModulosAnyadidos-1)];
 
-//		array[this.numModulosAnyadidos] = null; // 	por que no puedo ponerlo a null?, entiendo que no importa porque luego pisariamos la posicio, pero por que no puedo ponerlo a null?
+		array[this.numModulosAnyadidos-1] = null; // 	por que no puedo ponerlo a null?, entiendo que no importa porque luego pisariamos la posicio, pero por que no puedo ponerlo a null?
 		numModulosAnyadidos--;
 		return extraido;
 
