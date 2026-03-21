@@ -1,6 +1,7 @@
 package ejercicio2;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class Contacto {
 
@@ -57,6 +58,30 @@ public class Contacto {
 		return "Contacto [telefono=" + telefono + ", nombre=" + nombre + ", email=" + email + ", fechaNac=" + fechaNac
 				+ "]\n";
 	}
+
+	
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(telefono);
+	}
+
+	
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Contacto other = (Contacto) obj;
+		return Objects.equals(telefono, other.telefono);
+	}
+	
+	
+	
 	
 	
 	
