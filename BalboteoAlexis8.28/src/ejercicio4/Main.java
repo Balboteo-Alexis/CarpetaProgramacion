@@ -31,7 +31,6 @@ public class Main {
 			ordenada.add(i);
 		}
 		
-		Collections.sort(ordenada, new Comparador());
 		System.out.println(ordenada.toString());
 		
 		
