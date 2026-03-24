@@ -25,7 +25,7 @@ public abstract class Libro {
 	protected String titulo;
 	protected String autor;
 	protected LocalDate fechaPublicacion;
-	protected String genero;
+	protected generos genero;
 	protected boolean disponibilidad;
 
 	public Libro( String titulo, String autor, LocalDate fechaPublicacion, String genero,
