@@ -78,7 +78,7 @@ public class Main {
 		
 		System.out.println(evaluacion.toString());
 		
-		System.out.printf("%n[6] La posición del último registro insertado es: %d%n", evaluacion.indexOf(nuevo));
+		System.out.printf("%n[6] La posición del último registro insertado es: %d%n", evaluacion.lastIndexOf(nuevo));
 
 		
 		
@@ -221,7 +221,7 @@ public class Main {
 		/* =========================================================
 		 * 14. Crea una sublista por cada grupo y ordénala por nombre descendente.
 		 * ========================================================= */
-																												//Como lo ordeno si ya tengo un comparador definido?
+																												
 
 		System.out.printf("%n[14] Creación de sublistas por grupo:%n");
 		ArrayList<Alumno> grupoA = new ArrayList<Alumno>();
@@ -257,6 +257,16 @@ public class Main {
 		System.out.printf("     Grupo D: %d alumnos%n", grupoD.size());
 		System.out.printf("     Grupo E: %d alumnos%n", grupoE.size());
 
+		
+		grupoA.sort(new ComparadorNombre());
+		grupoB.sort(new ComparadorNombre());
+		grupoC.sort(new ComparadorNombre());
+		grupoD.sort(new ComparadorNombre());
+		grupoE.sort(new ComparadorNombre());
+		
+		
+		
+		
 		System.out.printf("%n     Listado grupo A:%n%s%n", grupoA.toString());
 		System.out.printf("%n     Listado grupo B:%n%s%n", grupoB.toString());
 		System.out.printf("%n     Listado grupo C:%n%s%n", grupoC.toString());
@@ -271,6 +281,30 @@ public class Main {
 		 * ========================================================= */
 		
 		
+		//GRUPO A	
+		
+		System.out.printf("\nNotas media grupo A: %.2f | %.2f | %.2f | %.2f | %.2f ", notasMedia(grupoA)[0],notasMedia(grupoA)[1],notasMedia(grupoA)[2],notasMedia(grupoA)[3],notasMedia(grupoA)[4]);
+		
+		
+		
+		System.out.printf("\nNotas media grupo B: %.2f | %.2f | %.2f | %.2f | %.2f ", notasMedia(grupoB)[0],notasMedia(grupoB)[1],notasMedia(grupoB)[2],notasMedia(grupoB)[3],notasMedia(grupoB)[4]);
+		
+		
+		
+		System.out.printf("\nNotas media grupo C: %.2f | %.2f | %.2f | %.2f | %.2f ", notasMedia(grupoC)[0],notasMedia(grupoC)[1],notasMedia(grupoC)[2],notasMedia(grupoC)[3],notasMedia(grupoC)[4]);
+		
+		
+		
+		System.out.printf("\nNotas media grupo D: %.2f | %.2f | %.2f | %.2f | %.2f ", notasMedia(grupoD)[0],notasMedia(grupoD)[1],notasMedia(grupoD)[2],notasMedia(grupoD)[3],notasMedia(grupoD)[4]);
+		
+		
+		
+		System.out.printf("\nNotas media grupo E: %.2f | %.2f | %.2f | %.2f | %.2f ", notasMedia(grupoE)[0],notasMedia(grupoE)[1],notasMedia(grupoE)[2],notasMedia(grupoE)[3],notasMedia(grupoE)[4]);
+		
+		
+		
+		
+		
 		
 		
 		
@@ -282,9 +316,120 @@ public class Main {
 		 *     ordenadas por nota y nombre.
 		 * ========================================================= */
 
+		
+		System.out.println("\n\nLos 10 mejores del grupo A son: ");
+		
+		for (Alumno alumno : mejoresEnMates(grupoA)) {
+			
+			System.out.println(alumno.toString());
+		}
+		
+		System.out.println("---------------------------");
+		System.out.println("\nLos 10 mejores del grupo B son: ");
+		
+		for (Alumno alumno : mejoresEnMates(grupoB)) {
+			
+			System.out.println(alumno.toString());
+		}
+		System.out.println("---------------------------");
+		System.out.println("\nLos 10 mejores del grupo C son: ");
+		
+		for (Alumno alumno : mejoresEnMates(grupoC)) {
+			
+			System.out.println(alumno.toString());
+		}
+		System.out.println("---------------------------");
+		System.out.println("\nLos 10 mejores del grupo D son: ");
+		
+		for (Alumno alumno : mejoresEnMates(grupoD)) {
+			
+			System.out.println(alumno.toString());
+		}
+		System.out.println("---------------------------");
+		System.out.println("\nLos 10 mejores del grupo E son: ");
+		
+		for (Alumno alumno : mejoresEnMates(grupoE)) {
+			
+			System.out.println(alumno.toString());
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 
 	// metodos
+	
+	
+	public static ArrayList<Alumno> mejoresEnMates(ArrayList<Alumno>  lista  ){
+		
+		ArrayList<Alumno> mejores = new ArrayList<Alumno>();
+		
+		
+		lista.sort(new ComparadorNotas());
+		
+		for (int i = 0; i < 10; i++) {
+			
+			mejores.add(lista.get(i));
+			
+		}
+		
+		
+		
+		
+		
+		return mejores;
+		
+	}
+	
+	
+	
+	
+	
+	public static double[] notasMedia( ArrayList<Alumno> lista ) {
+		
+		double[] notas;
+		
+		double notaMates=0,notaLengua=0,notaPlastica=0,notaFisica=0,notaIngles=0;
+		
+		
+		for (Alumno alumno : lista) {
+			
+			notaMates += alumno.getMates();
+			notaFisica += alumno.getFisica();
+			notaLengua += alumno.getLengua();
+			notaIngles += alumno.getIngles();
+			notaPlastica += alumno.getPlastica();
+			
+		}
+		
+		
+		notaMates = notaMates / lista.size();
+		notaFisica = notaFisica / lista.size();
+		notaLengua = notaLengua / lista.size();
+		notaIngles = notaIngles / lista.size();
+		notaPlastica = notaPlastica / lista.size();
+		
+		notas = new double[]{ notaMates , notaFisica,notaIngles,notaLengua,notaPlastica};
+		
+		
+		
+		return notas;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	public static double notaMedia(Alumno alumno) {
 
@@ -307,9 +452,9 @@ public class Main {
 	public static ArrayList<Alumno> listaAlumnos(String nombreFichero) {
 
 		ArrayList<Alumno> evaluacion = new ArrayList<Alumno>();
+		File archivo = new File(nombreFichero);
 
 		try {
-			File archivo = new File(nombreFichero);
 			Scanner lector = new Scanner(archivo);
 
 			while (lector.hasNext()) {
