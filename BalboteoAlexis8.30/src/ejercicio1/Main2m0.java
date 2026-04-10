@@ -5,8 +5,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
 
-
-public class Main {
+public class Main2m0 {
 
 	public static void main(String[] args) {
 
@@ -17,79 +16,50 @@ public class Main {
 		 *    donde la información tiene el siguiente formato:
 		 *    grupo;nombre;matemáticas;lengua;física;química;inglés
 		 * ========================================================= */
-		
-		
 		evaluacion = listaAlumnos("notas1.txt");
 
 		/* =========================================================
 		 * 2. Muestra el número de registros que contiene.
 		 * ========================================================= */
-		
-		
 		System.out.printf("%n[2] Registros importados desde notas1.txt: %d%n", evaluacion.size());
 
 		/* =========================================================
 		 * 3. Ordena los registros por grupo y nombre.
 		 * ========================================================= */
-		
-		
-		
 		evaluacion.sort(new Comparador());
 		System.out.printf("%n[3] Registros ordenados por grupo y nombre.%n");
 		System.out.printf("    (Mostrando lista completa tras ordenar)%n");
 		System.out.println(evaluacion.toString());
 
-		
-		
 		/* =========================================================
 		 * 4. Inserta siguiente registro:
 		 *    1º ESO D;López Muro, Rosario;3;3;4;4;3
 		 * ========================================================= */
-		
-		
-		
 		Alumno nuevo = new Alumno("1º ESO D", "López Muro, Rosario", 3, 3, 4, 4, 3);
 		evaluacion.add(nuevo);
 		System.out.printf("%n[4] Insertado registro al final:%n    %s%n", nuevo.toString());
-		
-		
-		
 
 		/* =========================================================
 		 * 5. Insertar el siguiente registro en mitad de la lista:
 		 *    1º ESO B;Duarte Durán, Alba;2;3;4;1;3
 		 * ========================================================= */
-		
-		
-		
-		nuevo = new Alumno("1º ESO B", "Duarte Durán, Alba", 2, 3, 4, 1, 3);															//PREGUNTAS
+		nuevo = new Alumno("1º ESO B", "Duarte Durán, Alba", 2, 3, 4, 1, 3);
 		int mitad = evaluacion.size() / 2;
 		evaluacion.add(mitad, nuevo);
-		System.out.printf("%n[5] Insertado registro en mitad (posición %d):%n    %s%n", mitad, nuevo.toString());  						 // por qué este no se ordena? y el de add sin index si?
+		System.out.printf("%n[5] Insertado registro en mitad (posición %d):%n    %s%n", mitad, nuevo.toString());   // por qué este no se ordena? y el de last si?
 
-		
-		
-		
 		/* =========================================================
 		 * 6. Mostrar la posición que ocupa el último registro anterior insertado.
 		 * ========================================================= */
-		
-		
 		
 		System.out.println(evaluacion.toString());
 		
 		System.out.printf("%n[6] La posición del último registro insertado es: %d%n", evaluacion.indexOf(nuevo));
 
-		
-		
-		
 		/* =========================================================
 		 * 7. Importa los registros del documento notas2.txt a un ArraList auxiliar
 		 *    e incluye los elementos de este ArrayList auxiliar al primer ArrayList.
 		 * ========================================================= */
-		
-		
-		
 		ArrayList<Alumno> auxiliar = new ArrayList<Alumno>();
 		auxiliar = listaAlumnos("notas2.txt");
 		evaluacion.addAll(auxiliar);
@@ -97,14 +67,10 @@ public class Main {
 		System.out.printf("%n[7] Importados %d registros desde notas2.txt y añadidos a la lista principal.%n", auxiliar.size());
 		System.out.printf("    Total de registros actuales en evaluación: %d%n", evaluacion.size());
 
-		
-		
 		/* =========================================================
 		 * 8. Busca el registro con el nombre “Cordero Benítez, Alejandro”
 		 *    y muestra toda su información.
 		 * ========================================================= */
-		
-		
 		String persona = "Cordero Benítez, Alejandro";
 
 		int posicion;
@@ -117,15 +83,10 @@ public class Main {
 			System.out.printf("    Resultado: no está esta persona en la lista.%n");
 		}
 
-		
-		
 		/* =========================================================
 		 * 9. Busca el registro con el nombre “Fernández Villalón, Carlos”
 		 *    y muestra toda su información.
 		 * ========================================================= */
-		
-		
-		
 		persona = "“Fernández Villalón, Carlos"; // no está en la lista
 
 		posicion = buscarPersona(persona, evaluacion);
@@ -137,14 +98,10 @@ public class Main {
 			System.out.printf("    Resultado: no está esta persona en la lista.%n");
 		}
 
-		
-		
 		/* =========================================================
 		 * 10. Borra el registro que está en la posición mitad más 1,
 		 *     indicando la información del registro que borras.
 		 * ========================================================= */
-		
-		
 		mitad = evaluacion.size()/2; 
 		System.out.printf("%n[10] Eliminación del registro en 'mitad + 1'.%n");
 		System.out.printf("     Posición base (mitad): %d -> posición a borrar (mitad+1): %d%n", mitad, (mitad + 1));
@@ -153,14 +110,10 @@ public class Main {
 
 		evaluacion.remove(mitad + 1);
 		System.out.printf("     OK: registro eliminado correctamente.%n");
-		
 
 		/* =========================================================
 		 * 11. Borra los primeros 10 registros.
 		 * ========================================================= */
-		
-		
-		
 		System.out.printf("%n[11] Borrado de los primeros 10 registros.%n");
 		System.out.printf("     Tamaño antes de borrar: %d%n", evaluacion.size());
 
@@ -169,16 +122,11 @@ public class Main {
 		}
 
 		System.out.printf("     Tamaño después de borrar: %d%n", evaluacion.size());
-		
-		
 
 		/* =========================================================
 		 * 12. Borra todos los registros que tengan en matemáticas un 2.
 		 *     Indica cuántos registros borras.
 		 * ========================================================= */
-		
-		
-		
 		int borrados = 0;
 
 		Iterator<Alumno> it = evaluacion.iterator();
@@ -195,15 +143,9 @@ public class Main {
 		System.out.printf("     Total de registros borrados: %d%n", borrados);
 		System.out.printf("     Registros restantes en evaluación: %d%n", evaluacion.size());
 
-		
-		
-		
 		/* =========================================================
 		 * 13. Calcula la nota media para cada alumno.
 		 * ========================================================= */
-		
-		
-		
 		double nota;
 
 		System.out.printf("%n[13] Nota media por alumno:%n");
@@ -211,17 +153,14 @@ public class Main {
 
 			nota = notaMedia(alumno);
 
-			System.out.printf("     %s  --  Nota media: %.2f", alumno.toString(), nota);
+			System.out.printf("     %s  --  Nota media: %.2f%n", alumno.toString(), nota);
 
 		}
-		
-		
-		
 
 		/* =========================================================
 		 * 14. Crea una sublista por cada grupo y ordénala por nombre descendente.
 		 * ========================================================= */
-																												//Como lo ordeno si ya tengo un comparador definido?
+		//Como lo ordeno si ya tengo un comparador definido?
 
 		System.out.printf("%n[14] Creación de sublistas por grupo:%n");
 		ArrayList<Alumno> grupoA = new ArrayList<Alumno>();
@@ -263,19 +202,9 @@ public class Main {
 		System.out.printf("%n     Listado grupo D:%n%s%n", grupoD.toString());
 		System.out.printf("%n     Listado grupo E:%n%s%n", grupoE.toString());
 
-		
-		
-		
 		/* =========================================================
 		 * 15. Calcula para cada grupo la nota media de cada materia.
 		 * ========================================================= */
-		
-		
-		
-		
-		
-		
-		
 
 		/* =========================================================
 		 * 16. Para cada grupo muestra las diez mejores notas en matemáticas

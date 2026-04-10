@@ -64,21 +64,21 @@ public class Main {
 		// usuario. d. Modificar la
 		// dirección y/o teléfono de un alumno, dado su código de alumno.
 
-//		System.out.println("Daremos a un usuario de baja:");
-//		teclado.nextLine();
-//		System.out.println("Nombre:");
-//		String nombre3 = teclado.nextLine();
-//
-//		System.out.println("Apellidos:");
-//		String apellidos3 = teclado.nextLine();
-//
-//		if (darBaja(alumnado, nombre3, apellidos3)) {
-//
-//			System.out.println("Borrado con exito");
-//
-//		}else {
-//			System.out.println("No se pudo borrar el alumno");
-//		}
+		System.out.println("Daremos a un usuario de baja:");
+		teclado.nextLine();
+		System.out.println("Nombre:");
+		String nombre3 = teclado.nextLine();
+
+		System.out.println("Apellidos:");
+		String apellidos3 = teclado.nextLine();
+
+		if (darBaja(alumnado, nombre3, apellidos3)) {
+
+			System.out.println("Borrado con exito");
+
+		}else {
+			System.out.println("No se pudo borrar el alumno");
+		}
 
 		// 4 Modificar la dirección y/o teléfono de un alumno, dado su código de alumno.
 

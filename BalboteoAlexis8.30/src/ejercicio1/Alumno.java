@@ -30,10 +30,26 @@ public class Alumno {
 	public String getNombre() {
 		return nombre;
 	}
-	
-	
-	
-	
+
+	public int getMates() {
+		return mates;
+	}
+
+	public int getLengua() {
+		return lengua;
+	}
+
+	public int getIngles() {
+		return ingles;
+	}
+
+	public int getFisica() {
+		return fisica;
+	}
+
+	public int getPlastica() {
+		return plastica;
+	}
 
 	@Override
 	public int hashCode() {
@@ -54,8 +70,8 @@ public class Alumno {
 
 	@Override
 	public String toString() {
-		return "Alumno [curso=" + curso + ", nombre=" + nombre + ", mates=" + mates + ", lengua=" + lengua
-				+ ", ingles=" + ingles + ", fisica=" + fisica + ", plastica=" + plastica + "]"+ "\n";
+		return "\nAlumno [curso=" + curso + ", nombre=" + nombre + ", mates=" + mates + ", lengua=" + lengua + ", ingles="
+				+ ingles + ", fisica=" + fisica + ", plastica=" + plastica + "]"  ;
 	}
 
 }
