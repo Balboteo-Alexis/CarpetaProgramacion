@@ -126,27 +126,86 @@ public class Main {
 		
 		// 10. Muestra el registro que está en la mitad de la lista.
 		
-		System.out.println(" [10] Muestra el registro que está en la mitad de la lista...");
+		System.out.println("[10] Muestra el registro que está en la mitad de la lista...");
 		
 		mitad = evaluacion.size()/2;
 		
 		
 
+		System.out.println();
+		
+		// 11. ¿Qué posición ocupa la primera ocurrencia del registro insertado?				// ya se añadio al principio no entiendo
+		
+		System.out.println("[11] ¿Qué posición ocupa la primera ocurrencia del registro insertado?...");
+		
+		int posicion = evaluacion.indexOf(nuevo);
+		
+		System.out.println(posicion);
 		
 		
-		// 11. ¿Qué posición ocupa la primera ocurrencia del registro insertado?
-
+		
+		System.out.println();
 		// 12. ¿Qué posición ocupa la última ocurrencia del registro insertado?
+		
+		System.out.println("[12]  Qué posición ocupa la última ocurrencia del registro insertado?...");
+		
+		
+		posicion = evaluacion.lastIndexOf(nuevo);
+		
+		System.out.println(posicion);
+		
+		
+		
+		
 
 		// 13. ¿El siguiente registro está en la lista?
-		// 1º ESO E;Postigo Vázquez, Salvador;3;6;5;3;4
-
+		
+		System.out.println("[13] ¿El siguiente registro está en la lista? 1º ESO E;Postigo Vázquez, Salvador;3;6;5;3;4...");
+		
+		nuevo = new Alumno("1º ESO E", "Postigo Vázquez, Salvador",3,6,5,3,4);
+		
+		
+		posicion = buscarRegistro(evaluacion, nuevo);
+		
+		
+		
+		if (posicion != -1) {
+			System.out.printf("    Encontrado en la posición %d:    %s%n", posicion, evaluacion.get(posicion).toString());
+		} else {
+			System.out.printf("    Resultado: no está esta persona en la lista.%n");
+		}
+		
+		
+		
+		System.out.println();
 		// 14. ¿Y éste?
 		// 1º ESO A;García Fernández, María;6;5;6;5;5
+		
+		System.out.println("[14] ¿El siguiente registro está en la lista? 1º ESO A;García Fernández, María;6;5;6;5;5...");
+		
+		nuevo = new Alumno("1º ESO A","García Fernández, María",6,5,6,5,5);
+		
+
+		posicion = buscarRegistro(evaluacion, nuevo);
+		
+		
+		
+		if (posicion != -1) {
+			System.out.printf("    Encontrado en la posición %d:    %s%n", posicion, evaluacion.get(posicion).toString());
+		} else {
+			System.out.printf("    Resultado: no está esta persona en la lista.%n");
+		}
+		
+		 
+		
 
 		// 15. Elimina la primera ocurrencia del registro insertado y muestra su
 		// posición y contenido.
 
+		
+		
+		
+		
 		// 16. Elimina el registro que ocupa la posición media de la lista mostrando su
 		// contenido.
 
@@ -166,6 +225,26 @@ public class Main {
 	
 	
 	// Metodos
+
+
+	
+	
+	
+	// devuelve la posicion y si no está devuelve -1
+	public static int buscarRegistro ( LinkedList<Alumno> lista , Alumno alumnoBuscado) {
+		
+		int resultado;
+			
+		resultado = lista.indexOf(alumnoBuscado);
+		
+
+		return resultado;
+	}
+	
+	
+	
+	
+	
 	
 	
 	public static boolean copiarArchivo(LinkedList<Alumno> original, File destino) {
