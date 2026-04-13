@@ -55,6 +55,12 @@ public class Alumno {
 	public int hashCode() {
 		return Objects.hash(nombre);
 	}
+	
+	
+	
+	
+	
+	
 
 	@Override
 	public boolean equals(Object obj) {
