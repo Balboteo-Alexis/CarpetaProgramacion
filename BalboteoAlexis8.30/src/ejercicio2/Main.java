@@ -2,6 +2,8 @@ package ejercicio2;
 
 import java.io.File;
 import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.Scanner;
 
@@ -33,7 +35,7 @@ public class Main {
 		
 		System.out.println("[3] Ordenamos la lista por grupo y nombre...");
 		
-		evaluacion.sort(new Comparador());
+		Collections.sort(evaluacion);
 		
 		
 		System.out.println("Guardamos la lista ordenada en: LinkedList3.txt");
@@ -43,7 +45,7 @@ public class Main {
 		
 		
 		
-		copiarArchivo(evaluacion , resultados1);
+		generarArchivo(evaluacion , resultados1);
 		
 		
 		System.out.println();
@@ -53,6 +55,7 @@ public class Main {
 		
 		System.out.println("[4] Añadimos un registro en mitad de la lista...");
 		
+		System.out.printf("Tamaño: %d Alumnos ", evaluacion.size());
 		
 		Alumno nuevo = new Alumno("1º ESO A", "Plaza Gallego, Juan", 1,1,3,1,1);
 		
@@ -60,7 +63,7 @@ public class Main {
 		
 		evaluacion.add(mitad, nuevo);
 		
-		System.out.println("Número de registros: " + evaluacion.size());
+		System.out.printf("Tamaño: %d Alumnos ", evaluacion.size());
 		System.out.println("Posición del nuevo registro: "  + evaluacion.lastIndexOf(nuevo)  );
 		
 		System.out.println();
@@ -68,9 +71,10 @@ public class Main {
 		
 		System.out.println("[5] Añadimos el registro...");
 		
+		
 		evaluacion.addFirst(nuevo);
 		
-		System.out.println("Número de registros: " + evaluacion.size());
+		System.out.printf("Tamaño: %d Alumnos ", evaluacion.size());
 		System.out.println("Posición del nuevo registro: "  + evaluacion.indexOf(nuevo)  );
 		
 		
@@ -105,7 +109,7 @@ public class Main {
 		
 		
 		
-		copiarArchivo(evaluacion , resultados2);
+		generarArchivo(evaluacion , resultados2);
 		
 
 		System.out.println();
@@ -130,7 +134,7 @@ public class Main {
 		
 		mitad = evaluacion.size()/2;
 		
-		
+		System.out.println(evaluacion.get(mitad).toString());
 
 		System.out.println();
 		
@@ -197,17 +201,46 @@ public class Main {
 		}
 		
 		 
-		
+		System.out.println();
 
 		// 15. Elimina la primera ocurrencia del registro insertado y muestra su
 		// posición y contenido.
 
+		System.out.println("[15] Elimina la primera ocurrencia del registro insertado y muestra su posición y contenido.");
+		
+		System.out.printf("Tamaño: %d Alumnos ", evaluacion.size());
+		
+		nuevo = new Alumno("1º ESO A", "Plaza Gallego, Juan", 1,1,3,1,1);
+		
+		posicion = evaluacion.indexOf(nuevo);  
 		
 		
+		System.out.printf("La primera ocurrencia es en la posicion: %d %s",posicion,evaluacion.get(posicion).toString() );
 		
+		evaluacion.removeFirstOccurrence(nuevo);
+		
+		System.out.println("Borramos el registro..");
+		System.out.printf("Tamaño: %d Alumnos ", evaluacion.size());
+		
+		System.out.println();
 		
 		// 16. Elimina el registro que ocupa la posición media de la lista mostrando su
 		// contenido.
+		
+		
+		System.out.println("[16] Elimina el registro que ocupa la posición media de la lista mostrando su contenido...");
+		
+		System.out.printf("Tamaño: %d Alumnos ", evaluacion.size());
+		
+		mitad = evaluacion.size()/2;
+		
+		System.out.println(evaluacion.get(mitad).toString());
+		evaluacion.remove(mitad);
+		
+		System.out.println("Borramos el registro..");
+		
+		System.out.printf("Tamaño: %d Alumnos ", evaluacion.size());
+		
 
 		// 17. Elimina el registro cuyo nombre es: Carrillo Segura, Félix, indicando su
 		// posición y contenido.
@@ -217,6 +250,10 @@ public class Main {
 
 		// 19. Intenta simular una pila con la lista original. Realiza dos inserciones y
 		// extracciones detallando su funcionamiento.
+		
+		
+		
+		 
 
 		// 20. Intenta simular una cola con la lista original. Realiza dos inserciones y
 		// extracciones detallando su funcionamiento.
@@ -247,7 +284,7 @@ public class Main {
 	
 	
 	
-	public static boolean copiarArchivo(LinkedList<Alumno> original, File destino) {
+	public static boolean generarArchivo(LinkedList<Alumno> original, File destino) {
 
 		boolean resultado = false;
 		
@@ -261,11 +298,12 @@ public class Main {
 				String linea = original.get(i).toString();
 				
 				escribir.write(linea);
+				resultado = true;
 				
 			}
 			
 			escribir.close();
-		} catch (Exception ex1) {
+		} catch (IOException ex1) {
 			
 			System.out.println("Error: " + ex1.getMessage());
 		}

@@ -2,7 +2,7 @@ package ejercicio1;
 
 import java.util.Objects;
 
-public class Alumno {
+public class Alumno implements Comparable<Alumno> {
 
 	private String curso;
 	private String nombre;
@@ -57,7 +57,14 @@ public class Alumno {
 	}
 	
 	
-	
+
+	@Override
+	public int compareTo(Alumno o) {
+		
+		
+		return getNombre().compareTo(o.getNombre());
+		
+	}
 	
 	
 	
@@ -79,5 +86,6 @@ public class Alumno {
 		return "\nAlumno [curso=" + curso + ", nombre=" + nombre + ", mates=" + mates + ", lengua=" + lengua + ", ingles="
 				+ ingles + ", fisica=" + fisica + ", plastica=" + plastica + "]"  ;
 	}
+
 
 }
