@@ -119,7 +119,7 @@ public class Main {
 		while (it.hasNext()  ) {
 			Empleado empleado = it.next();
 			
-			if (empleado.getNombre() == "Luis") {
+			if (empleado.getNombre().equals("Luis")) {
 				
 				if(!encontrado) {
 					System.out.println(empleado.toString());
