@@ -1,0 +1,13 @@
+1;Ana Garcia;5
+2;Pedro Lopez;12
+3;Maria Ruiz;2
+4;Juan Perez;8
+1;Ana Garcia;5
+5;Lucia Sanz;15
+6;Carlos Diaz;1
+7;Elena Meza;10
+2;Pedro Lopez;12
+8;Raul Gil;3
+9;Sofia Cano;20
+10;Hugo Vera;4
+11;Irene Orta;7

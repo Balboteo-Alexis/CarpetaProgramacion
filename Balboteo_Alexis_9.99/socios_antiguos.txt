@@ -1,0 +1,6 @@
+
+Socio [id=2, nombre=Pedro Lopez, antiguedad=12]
+Socio [id=4, nombre=Juan Perez, antiguedad=8]
+Socio [id=5, nombre=Lucia Sanz, antiguedad=15]
+Socio [id=7, nombre=Elena Meza, antiguedad=10]
+Socio [id=9, nombre=Sofia Cano, antiguedad=20]
