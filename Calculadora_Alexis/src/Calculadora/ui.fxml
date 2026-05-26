@@ -12,50 +12,63 @@
 <?import javafx.scene.text.*?>
 <?import javafx.scene.paint.Color?>
 
-<VBox spacing="10" alignment="CENTER" prefWidth="300" prefHeight="300" fx:controller="Calculadora.Controller" xmlns:fx="http://javafx.com/fxml">
+<VBox spacing="25" alignment="CENTER" prefWidth="420" prefHeight="540" fx:controller="Calculadora.Controller" xmlns:fx="http://javafx.com/fxml" style="-fx-background-color: linear-gradient(to bottom, #1e1e2f, #2d2d44);">
     <fx:define>
-        <Font fx:id="FONT" size="18" />
+        <Font fx:id="FONT" size="22" />
     </fx:define>
     
     <StackPane alignment="CENTER">
-        <Rectangle fill="TRANSPARENT" stroke="GRAY" width="230" height="50" />
-        <Text fx:id="output" font="$FONT" />
+        <Rectangle arcWidth="25" arcHeight="25" fill="#f5f5f5" stroke="#6c63ff" strokeWidth="3" width="280" height="70" />
+        <Text fx:id="pantalla" font="$FONT" fill="#222222" />
     </StackPane>
 
-    <HBox spacing="130" alignment="CENTER">
-        <Button text="C" prefWidth="50" font="$FONT" onAction="#processClear" />
-        
-        <Button text="AC" prefWidth="50" font="$FONT" onAction="#processAllClear" />
+    <HBox spacing="80" alignment="CENTER">
+        <Button text="C" prefWidth="90" prefHeight="45" font="$FONT" onAction="#borrarUltimoCaracter"
+                style="-fx-background-color: #ffb347; -fx-text-fill: black; -fx-background-radius: 20;" />
+        <Button text="AC" prefWidth="90" prefHeight="45" font="$FONT" onAction="#limpiarTodo"
+                style="-fx-background-color: #ff6961; -fx-text-fill: white; -fx-background-radius: 20;" />
     </HBox>
 
-
-    <HBox spacing="10" alignment="CENTER">
-        <Button text="7" prefWidth="50" font="$FONT" onAction="#processNumpad" />
-        <Button text="8" prefWidth="50" font="$FONT" onAction="#processNumpad" />
-        <Button text="9" prefWidth="50" font="$FONT" onAction="#processNumpad" />
-        <Button text="/" prefWidth="50" font="$FONT" onAction="#processOperator" />
+    <HBox spacing="15" alignment="CENTER">
+        <Button text="7" prefWidth="60" prefHeight="60" font="$FONT" onAction="#procesarNumero"
+                style="-fx-background-color: #ffffff; -fx-background-radius: 30;" />
+        <Button text="8" prefWidth="60" prefHeight="60" font="$FONT" onAction="#procesarNumero"
+                style="-fx-background-color: #ffffff; -fx-background-radius: 30;" />
+        <Button text="9" prefWidth="60" prefHeight="60" font="$FONT" onAction="#procesarNumero"
+                style="-fx-background-color: #ffffff; -fx-background-radius: 30;" />
+        <Button text="/" prefWidth="60" prefHeight="60" font="$FONT" onAction="#procesarOperador"
+                style="-fx-background-color: #6c63ff; -fx-text-fill: white; -fx-background-radius: 30;" />
     </HBox>
     
-    <HBox spacing="10" alignment="CENTER">
-        <Button text="4" prefWidth="50" font="$FONT" onAction="#processNumpad" />
-        <Button text="5" prefWidth="50" font="$FONT" onAction="#processNumpad" />
-        <Button text="6" prefWidth="50" font="$FONT" onAction="#processNumpad" />
-        <Button text="*" prefWidth="50" font="$FONT" onAction="#processOperator" />
+    <HBox spacing="15" alignment="CENTER">
+        <Button text="4" prefWidth="60" prefHeight="60" font="$FONT" onAction="#procesarNumero"
+                style="-fx-background-color: #ffffff; -fx-background-radius: 30;" />
+        <Button text="5" prefWidth="60" prefHeight="60" font="$FONT" onAction="#procesarNumero"
+                style="-fx-background-color: #ffffff; -fx-background-radius: 30;" />
+        <Button text="6" prefWidth="60" prefHeight="60" font="$FONT" onAction="#procesarNumero"
+                style="-fx-background-color: #ffffff; -fx-background-radius: 30;" />
+        <Button text="*" prefWidth="60" prefHeight="60" font="$FONT" onAction="#procesarOperador"
+                style="-fx-background-color: #6c63ff; -fx-text-fill: white; -fx-background-radius: 30;" />
     </HBox>
     
-    <HBox spacing="10" alignment="CENTER">
-        <Button text="1" prefWidth="50" font="$FONT" onAction="#processNumpad" />
-        <Button text="2" prefWidth="50" font="$FONT" onAction="#processNumpad" />
-        <Button text="3" prefWidth="50" font="$FONT" onAction="#processNumpad" />
-        <Button text="-" prefWidth="50" font="$FONT" onAction="#processOperator" />
+    <HBox spacing="15" alignment="CENTER">
+        <Button text="1" prefWidth="60" prefHeight="60" font="$FONT" onAction="#procesarNumero"
+                style="-fx-background-color: #ffffff; -fx-background-radius: 30;" />
+        <Button text="2" prefWidth="60" prefHeight="60" font="$FONT" onAction="#procesarNumero"
+                style="-fx-background-color: #ffffff; -fx-background-radius: 30;" />
+        <Button text="3" prefWidth="60" prefHeight="60" font="$FONT" onAction="#procesarNumero"
+                style="-fx-background-color: #ffffff; -fx-background-radius: 30;" />
+        <Button text="-" prefWidth="60" prefHeight="60" font="$FONT" onAction="#procesarOperador"
+                style="-fx-background-color: #6c63ff; -fx-text-fill: white; -fx-background-radius: 30;" />
     </HBox>
     
-    <HBox spacing="10" alignment="CENTER">
-        <Button text="0" prefWidth="110" font="$FONT" onAction="#processNumpad" />
-        <Button text="=" prefWidth="50" font="$FONT" onAction="#processOperator" />
-        <Button text="+" prefWidth="50" font="$FONT" onAction="#processOperator" />
+    <HBox spacing="15" alignment="CENTER">
+        <Button text="0" prefWidth="135" prefHeight="60" font="$FONT" onAction="#procesarNumero"
+                style="-fx-background-color: #ffffff; -fx-background-radius: 30;" />
+        <Button text="=" prefWidth="60" prefHeight="60" font="$FONT" onAction="#procesarOperador"
+                style="-fx-background-color: #00c896; -fx-text-fill: white; -fx-background-radius: 30;" />
+        <Button text="+" prefWidth="60" prefHeight="60" font="$FONT" onAction="#procesarOperador"
+                style="-fx-background-color: #6c63ff; -fx-text-fill: white; -fx-background-radius: 30;" />
     </HBox>
-    
-
     
 </VBox>

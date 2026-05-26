@@ -1,24 +1,23 @@
 package Calculadora;
 
-
 public class Model {
 
-    public long calculate(long number1, long number2, String operator) {
-        switch (operator) {
+    public long calcular(long primerNumero, long segundoNumero, String operador) {
+        switch (operador) {
             case "+":
-                return number1 + number2;
+                return primerNumero + segundoNumero;
             case "-":
-                return number1 - number2;
+                return primerNumero - segundoNumero;
             case "*":
-                return number1 * number2;
+                return primerNumero * segundoNumero;
             case "/":
-                if (number2 == 0)
+                if (segundoNumero == 0)
                     return 0;
 
-                return number1 / number2;
+                return primerNumero / segundoNumero;
         }
 
-        System.out.println("Unknown operator - " + operator);
+        System.out.println("Operador desconocido - " + operador);
         return 0;
     }
 }

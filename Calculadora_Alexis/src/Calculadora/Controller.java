@@ -8,66 +8,66 @@ import javafx.scene.text.Text;
 public class Controller {
 
     @FXML
-    private Text output;
+    private Text pantalla;
 
-    private long number1 = 0;
-    private String operator = "";
-    private boolean start = true;
+    private long primerNumero = 0;
+    private String operadorActual = "";
+    private boolean inicio = true;
 
-    private Model model = new Model();
+    private Model calculadoraModel = new Model();
 
     @FXML
-    private void processNumpad(ActionEvent event) {
-        if (start) {
-            output.setText("");
-            start = false;
+    private void procesarNumero(ActionEvent evento) {
+        if (inicio) {
+            pantalla.setText("");
+            inicio = false;
         }
 
-        String value = ((Button) event.getSource()).getText();
-        output.setText(output.getText() + value);
+        String valorBoton = ((Button) evento.getSource()).getText();
+        pantalla.setText(pantalla.getText() + valorBoton);
     }
 
     @FXML
-    private void processOperator(ActionEvent event) {
-        String value = ((Button) event.getSource()).getText();
+    private void procesarOperador(ActionEvent evento) {
+        String valorBoton = ((Button) evento.getSource()).getText();
 
-        if (!"=".equals(value)) {
-            if (output.getText().isEmpty()) {
+        if (!"=".equals(valorBoton)) {
+            if (pantalla.getText().isEmpty()) {
                 return;
             }
 
-            if (!operator.isEmpty()) {
+            if (!operadorActual.isEmpty()) {
                 return;
             }
 
-            operator = value;
-            number1 = Long.parseLong(output.getText());
-            output.setText("");
+            operadorActual = valorBoton;
+            primerNumero = Long.parseLong(pantalla.getText());
+            pantalla.setText("");
         } else {
-            if (operator.isEmpty() || output.getText().isEmpty()) {
+            if (operadorActual.isEmpty() || pantalla.getText().isEmpty()) {
                 return;
             }
 
-            output.setText(String.valueOf(model.calculate(number1, Long.parseLong(output.getText()), operator)));
-            operator = "";
-            start = true;
+            pantalla.setText(String.valueOf(calculadoraModel.calcular(primerNumero, Long.parseLong(pantalla.getText()), operadorActual)));
+            operadorActual = "";
+            inicio = true;
         }
     }
 
     @FXML
-    private void processClear(ActionEvent event) {
-        String currentText = output.getText();
+    private void borrarUltimoCaracter(ActionEvent evento) {
+        String textoActual = pantalla.getText();
 
-        if (!currentText.isEmpty()) {
-            output.setText(currentText.substring(0, currentText.length() - 1));
+        if (!textoActual.isEmpty()) {
+            pantalla.setText(textoActual.substring(0, textoActual.length() - 1));
         }
     }
 
     @FXML
-    private void processAllClear(ActionEvent event) {
-        output.setText("");
-        number1 = 0;
-        operator = "";
-        start = true;
+    private void limpiarTodo(ActionEvent evento) {
+        pantalla.setText("");
+        primerNumero = 0;
+        operadorActual = "";
+        inicio = true;
     }
 }
