@@ -23,9 +23,9 @@
     </StackPane>
 
     <HBox spacing="130" alignment="CENTER">
-        <Button text="C" prefWidth="50" font="$FONT" onAction="#processNumpad" />
+        <Button text="C" prefWidth="50" font="$FONT" onAction="#processClear" />
         
-        <Button text="AC" prefWidth="50" font="$FONT" onAction="#processOperator" />
+        <Button text="AC" prefWidth="50" font="$FONT" onAction="#processAllClear" />
     </HBox>
 
 
